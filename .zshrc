@@ -73,3 +73,20 @@ CRUNCH_PROMPT="$CRUNCH_BRACKET_COLOR➭ "
 
 # Put it all together!
 PROMPT="$CRUNCH_TIME_$CRUNCH_USER_HOST_$CRUNCH_DIR_$CRUNCH_PROMPT%{$reset_color%}"
+
+#SO girls
+alias alice='ssh alice.aqq.me'
+alias amy='ssh amy.aqq.me'
+alias diana='ssh diana.aqq.me'
+alias eva='ssh eva.aqq.me'
+alias fiona='ssh fiona.aqq.me'
+alias frida='ssh frida.aqq.me'
+alias jane='ssh jane.aqq.me'
+alias kate='ssh kate.aqq.me'
+alias lisa='ssh lisa.aqq.me'
+alias monica='ssh monica.aqq.me'
+alias petra='ssh petra.aqq.me'
+alias rachel='ssh rachel.aqq.me'
+alias vlatka='ssh vlatka.aqq.me'
+alias yana='ssh yana.aqq.me'
+alias zoe='ssh zoe.aqq.me'

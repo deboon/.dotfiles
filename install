@@ -2,5 +2,5 @@
 
 for f in `ls -1A .ssh/`; do rm -f ~/.ssh/$f; ln -fs ~/.dotfiles/.ssh/$f ~/.ssh/$f; done
 for f in `ls -1A | egrep '^\.' | egrep -v '(^\.git$)|(^\.ssh$)'`; do rm -f ~/$f; ln -fs ~/.dotfiles/$f ~/$f; done
-echo 'Changing shell to zsh'
+echo 'Changing shell to zsh (Ctrl+C to finish)'
 chsh -s zsh

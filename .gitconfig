@@ -3,3 +3,5 @@
 	email = roman.kubar@sms-online.com
 [color]
 	ui = true
+[core]
+	editor = vim

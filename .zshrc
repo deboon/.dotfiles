@@ -49,8 +49,10 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:$HOME/.bin:/home/mentor/perl5/bin:/home/mentor/google_appengine:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin:/home/mentor/soft/go/bin
 
 # Go language
-export PATH=$PATH:$HOME/soft/go/bin
-export GOROOT=$HOME/soft/go
+export GOROOT=$HOME/myrepo/go
+export PATH=$PATH:$GOROOT/bin
+export GOPATH=$GOROOT/gopath
+export PATH=$PATH:GOPATH/bin
 
 # Mentor_theme:
 

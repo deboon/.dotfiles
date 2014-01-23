@@ -52,7 +52,7 @@ export PATH=$PATH:$HOME/.bin:/home/mentor/perl5/bin:/home/mentor/google_appengin
 export GOROOT=$HOME/dev/go
 export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/dev/gopath
-export PATH=$PATH:GOPATH/bin
+export PATH=$PATH:$GOPATH/bin
 
 # Mentor_theme:
 

@@ -80,9 +80,8 @@ CRUNCH_PROMPT="$CRUNCH_BRACKET_COLOR➭ "
 # Put it all together!
 PROMPT="$CRUNCH_TIME_$CRUNCH_USER_HOST_$CRUNCH_DIR_$CRUNCH_PROMPT%{$reset_color%}"
 
-# Russify system
-export LANG='ru_RU.UTF-8'
-export LC_ALL='ru_RU.UTF-8'
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
 
 #SO girls
 alias alice='ssh alice.aqq.me'

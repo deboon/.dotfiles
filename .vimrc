@@ -64,10 +64,10 @@ endfunction
 "% - имя текущего файла
 "%< - имя текущего файла без расширения
 
-if exists('+colorcolumn')
-  set colorcolumn=80,120
-  highlight ColorColumn ctermbg=darkmagenta guibg=darkmagenta
-endif
+"if exists('+colorcolumn')
+"  set colorcolumn=80,120
+"  highlight ColorColumn ctermbg=darkmagenta guibg=darkmagenta
+"endif
       
 set nocompatible
 "

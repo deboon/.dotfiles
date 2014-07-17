@@ -100,3 +100,5 @@ alias vlatka='ssh vlatka.aqq.me'
 alias yana='ssh yana.aqq.me'
 alias zoe='ssh zoe.aqq.me'
 alias dev='ssh mentodev.aqq.me'
+alias siri='ssh siri.aqq.me'
+

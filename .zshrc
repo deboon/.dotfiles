@@ -86,6 +86,10 @@ PROMPT="$CRUNCH_TIME_$CRUNCH_USER_HOST_$CRUNCH_DIR_$CRUNCH_PROMPT%{$reset_color%
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 
+# livestreamer for twitch
+tw() {if [[ -z $2 ]]; then quality="best"; else quality=$2; fi; livestreamer --default-stream $quality "twitch.tv/$1"}
+alias tw=tw
+
 #SO girls
 alias alice='ssh alice.aqq.me'
 alias amy='ssh amy.aqq.me'

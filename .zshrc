@@ -90,6 +90,10 @@ export LC_ALL='en_US.UTF-8'
 tw() {if [[ -z $2 ]]; then quality="best"; else quality=$2; fi; livestreamer --default-stream $quality "twitch.tv/$1"}
 alias tw=tw
 
+# livestreamer for twitch
+wp() {if [[ -z $1 ]]; then echo "no file specified\n"; else file=$1; curl --upload-file $file "http://s.mne.li/$file"; fi;}
+alias wp=wp
+
 #SO girls
 alias alice='ssh alice.aqq.me'
 alias amy='ssh amy.aqq.me'

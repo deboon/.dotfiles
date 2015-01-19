@@ -91,8 +91,8 @@ tw() {if [[ -z $2 ]]; then quality="best"; else quality=$2; fi; livestreamer --d
 alias tw=tw
 
 # livestreamer for twitch
-wp() {if [[ -z $1 ]]; then echo "no file specified\n"; else file=$1; curl --upload-file $file "http://s.mne.li/$file"; fi;}
-alias wp=wp
+warp() {if [[ -z $1 ]]; then echo "no file specified\n"; else file=$1; curl --upload-file $file "http://s.mne.li/$file"; fi;}
+alias warp=warp
 
 #SO girls
 alias alice='ssh alice.aqq.me'

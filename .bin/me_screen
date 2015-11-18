@@ -11,8 +11,9 @@ mkdir -p ~/tmp/screens/;
 
 import ~/tmp/screens/$fname
 
-scp ~/tmp/screens/$fname d.mne.li:/tmp/sharer/;
-echo -n $addr | xclip;
-xdg-open $addr
-
+if [[ -e ~/tmp/screens/$fname ]]; then
+  scp ~/tmp/screens/$fname d.mne.li:/tmp/sharer/;
+  echo -n $addr | xclip;
+  xdg-open $addr
+fi
 

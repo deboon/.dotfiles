@@ -36,6 +36,8 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && killall -USR1 py3stat
 bindsym $mod+Control+p exec ~/.bin/synaptics_switcher
 bindsym $mod+Control+d exec sleep 0.5 && xset dpms force off
 
+bindsym --release $mod+Shift+s exec DISPLAY=:0.0 ~/.bin/me_screen
+
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5%
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5%
 

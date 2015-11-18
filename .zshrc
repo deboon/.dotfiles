@@ -90,6 +90,9 @@ export LC_ALL='en_US.UTF-8'
 tw() {if [[ -z $2 ]]; then quality="best"; else quality=$2; fi; livestreamer --default-stream $quality "twitch.tv/$1"}
 alias tw=tw
 
+# useful random func
+me_rand() {cat /dev/urandom | tr -dc '0-9a-zA-Z' | head -c$1}
+
 # warper for s.mne.li
 warp() {if [[ -z $1 ]]; then echo "no file specified\n"; else file=$1; curl -H "Expect:" --upload-file $file "http://s.mne.li/$file"; fi;}
 alias warp=warp

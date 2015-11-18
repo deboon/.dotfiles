@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+pk=$(pkill -c import)
+
+if [[ $pk > 0 ]]; then exit; fi
+
 me_rand (){
   cat /dev/urandom | tr -dc '0-9a-zA-Z' | head -c$1
 };

@@ -44,6 +44,8 @@ font pango: M+ 1m, FontAwesome, 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+bindsym --release $mod+Shift+s exec DISPLAY=:0.0 ~/.bin/me_screen
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 

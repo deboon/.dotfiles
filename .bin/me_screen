@@ -1,7 +1,9 @@
 #!/bin/zsh
 
 # run docker like this on server:
-# mkdir -p /tmp/sharer && echo '' > /tmp/sharer/index.html && docker run -d -p 80:80 -v /tmp/sharer:/sharer python /bin/bash -c "cd /sharer && python3 -m http.server 80"
+# mkdir -p /tmp/sharer; echo 'd.mne.li\nlog stdout' > /tmp/Caddyfile && docker run -d -v /tmp/sharer:/srv -v /tmp/Caddyfile:/etc/Caddyfile -p 80:2015 abiosoft/caddy
+# или
+# mkdir -p /tmp/sharer; echo '' > /tmp/sharer/index.html && docker run -d -p 80:80 -v /tmp/sharer:/sharer python /bin/bash -c "cd /sharer && python3 -m http.server 80"
 
 pk=$(pkill -c import)
 

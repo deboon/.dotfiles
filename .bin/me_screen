@@ -21,7 +21,7 @@ mkdir -p ~/tmp/screens/;
 import ~/tmp/screens/$fname
 
 if [[ -e ~/tmp/screens/$fname ]]; then
-  scp ~/tmp/screens/$fname d.mne.li:/tmp/sharer/;
+  scp ~/tmp/screens/$fname d.mne.li:/var/caddy/sharer/;
   echo -n $addr | xclip;
   xdg-open $addr
 fi

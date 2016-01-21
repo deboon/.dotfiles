@@ -3,6 +3,7 @@
 hostname=$1                                                        # hostname сервера
 hostip=$(getent hosts $hostname | awk '{ print $1 }' | head -n 1)  # ip сервера
 defaultgateway=$(ip route | awk '/default/ { print $3 }')          # текущий гейтвей
+prevgateway=$(ip route | grep "$hostip" | awk '{print $3}')        # возможно, предыдущий гейтвей
 if [[ -z $2 ]]; then mode="all"; else mode=$2; fi                  # режим (all, pandora, ...)
 
 tunsource=192.168.0.201 # локальный адрес внутри тунеля
@@ -13,15 +14,36 @@ tunremote=192.168.0.101 # удалённый адрес внутри тунел�
 #echo "defaultgateway = $defaultgateway"
 #echo "mode = $mode"
 
-if [ $hostip = $defaultgateway ]; then
+if [ $mode = "restore" ]; then
+  if [[ -n $prevgateway ]]; then
+    echo "Executing: sudo ip route replace default via $prevgateway ..."
+    sudo ip route replace default via $prevgateway
+    echo "gateway restored (maybe)"
+  fi
+  sudo pkill -f "ssh -NTCf -w 1:1"
+  exit
+fi
+
+if [[ $mode != "restore" && -z $defaultgateway ]]; then
+  echo "Empty default gateway..."
+  if [[ -n $prevgateway ]]; then
+    echo "Executing: sudo ip route replace default via $prevgateway ..."
+    sudo ip route replace default via $prevgateway
+  elif [[ $mode != "all" ]]; then
+    echo "Cant restore default gateway, exiting..."
+    exit
+  fi
+fi
+
+if [[ $tunremote = "$defaultgateway" ]]; then
   echo "Restore gateway first..."
-  echo "Break"
+  echo "$0 $hostname restore"
   exit
 fi
 
 if [[ -n $(ip add | grep tun1) ]]; then
-  echo "Tunnel already exists (tun1), kill it manually..."
-  echo $(pgrep -laf 'ssh -NTCf -w 1:1')
+  echo "Tunnel already exists (tun1), try to execute:"
+  echo "$0 $hostname restore"
   exit
 fi
 
@@ -29,7 +51,7 @@ fi
 sudo ssh -NTCf -w 1:1 $hostip
 
 # remote
-ssh -t d.mne.li "
+ssh -t $hostip "
 sudo ip link set tun1 up
 sudo ip addr add $tunremote/32 peer $tunsource dev tun1
 
@@ -42,10 +64,12 @@ sudo iptables -t nat -I PREROUTING -i tun1 -j ACCEPT
 # local
 sudo ip link set tun1 up
 sudo ip addr add $tunsource/32 peer $tunremote dev tun1
-sudo ip route add $hostip/32 via $defaultgateway > /dev/null
+sudo ip route add $hostip/32 via $defaultgateway 2> /dev/null
 
 if [ $mode = "all" ]; then
-  sudo ip route replace default via $tunremote"
+  sudo ip route replace default via $tunremote
 elif [ $mode = "pandora" ]; then
-  sudo ip route add 208.85.40.0/24 via $tunremote"
+  sudo ip route add 208.85.40.0/24 via $tunremote
 fi
+
+echo "OK"

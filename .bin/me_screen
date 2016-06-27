@@ -1,9 +1,15 @@
 #!/bin/zsh
 
-# run docker like this on server:
-# mkdir -p /tmp/sharer; echo 'd.mne.li\nlog stdout' > /tmp/Caddyfile && docker run -d -v /tmp/sharer:/srv -v /tmp/Caddyfile:/etc/Caddyfile -p 80:2015 abiosoft/caddy
-# или
-# mkdir -p /tmp/sharer; echo '' > /tmp/sharer/index.html && docker run -d -p 80:80 -v /tmp/sharer:/sharer python /bin/bash -c "cd /sharer && python3 -m http.server 80"
+# install AWS CLI like this:
+# ➭ sudo pip install awscli
+#
+# create user screener in AWS IAM with write permission to s3
+# and write credentials to ~/.aws/credentials in section "[screener]"
+#
+# create bucket on aws s3 likte this:
+# ➭ aws --profile screener s3api create-bucket --bucket mentoscreen
+#
+# make CNAME from i.mne.li to i.mne.li.s3.amazonaws.com
 
 pk=$(pkill -c import)
 
@@ -14,14 +20,15 @@ me_rand (){
 };
 
 fname=$(me_rand 8)".png"
-addr="http://d.mne.li/$fname"
+addr="http://i.mne.li/$fname"
 
 mkdir -p ~/tmp/screens/;
 
 import ~/tmp/screens/$fname
 
 if [[ -e ~/tmp/screens/$fname ]]; then
-  scp ~/tmp/screens/$fname d.mne.li:/var/caddy/sharer/;
+  aws s3 --profile screener cp ~/tmp/screens/$fname s3://i.mne.li --acl public-read
+  #scp ~/tmp/screens/$fname d.mne.li:/var/caddy/sharer/;
   echo -n $addr | xclip;
   xdg-open $addr
 fi

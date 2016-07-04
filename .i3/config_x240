@@ -30,8 +30,8 @@ hide_edge_borders both
 bindsym $mod+Control+l exec i3lock -d -c 141414
 #bindsym $mod+Control+l exec mate-screensaver-command -l && sleep 2 && xset dpms force off
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +3% && killall -USR1 py3status
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -- -3% && killall -USR1 py3status
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && killall -USR1 py3status
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -3% && killall -USR1 py3status
+bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle && killall -USR1 py3status
 
 bindsym $mod+Control+p exec ~/.bin/synaptics_switcher
 bindsym $mod+Control+d exec sleep 0.5 && xset dpms force off
@@ -188,6 +188,14 @@ bar {
 
 exec xrandr --output eDP1 --auto --primary --output DP1 --auto --left-of eDP1
 exec setxkbmap -layout "us,ru" -option "grp:caps_toggle,grp_led:caps"
+exec synclient TapButton2=0
+exec syncthing -no-browser
+
+exec --no-startup-id i3-msg 'workspace 9; keepassx; workspace 1'
+exec --no-startup-id i3-msg 'workspace 5; telegram; workspace 1'
+
+exec i3-msg 'workspace 1'
+
 
 #exec --no-startup-id i3-msg 'workspace "1: main"; exec google-chrome; workspace "1: main"'
 #exec --no-startup-id i3-msg 'workspace "3: mail"; exec thunderbird; workspace "1: main"'
@@ -202,7 +210,6 @@ workspace $WS5 output eDP1
 workspace $WS6 output eDP1
 workspace $WS7 output eDP1
 
-#exec i3-msg 'workspace "1: main"'
 for_window [title=" - Google Chrome$"] border none
 
 floating_minimum_size 500 x 200

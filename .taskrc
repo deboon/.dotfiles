@@ -14,7 +14,7 @@
 data.location=~/.task
 
 # Color theme (uncomment one to use)
-include /usr/local/share/doc/task/rc/light-16.theme
+#include /usr/local/share/doc/task/rc/light-16.theme
 #include /usr/local/share/doc/task/rc/light-256.theme
 #include /usr/local/share/doc/task/rc/dark-16.theme
 #include /usr/local/share/doc/task/rc/dark-256.theme
@@ -31,9 +31,16 @@ weekstart=Monday
 
 urgency.user.tag.lp.coefficient=-1000.0 # long play проекты, для времени после конца времён
 
-taskd.certificate=\/home\/mentor\/.task\/mentor.cert.pem
-taskd.key=\/home\/mentor\/.task\/mentor.key.pem
-taskd.ca=\/home\/mentor\/.task\/ca.cert.pem
-taskd.server=docky2.mentro.us:53589
-taskd.credentials=Mentorg\/mentor\/0caace06-b773-4b25-b674-7f5a71d416dd
+taskd.certificate=\/home\/mentor\/.task\/freecinc_d9f79c44.cert.pem
+taskd.key=\/home\/mentor\/.task\/freecinc_d9f79c44.key.pem
+taskd.ca=\/home\/mentor\/.task\/freecinc_d9f79c44.ca.pem
+taskd.server=freecinc.com:53589
+taskd.credentials=FreeCinc\/freecinc_d9f79c44\/42478d87-a0eb-43ae-a769-a8f77e836874
 taskd.trust=ignore hostname
+
+report.serials.description=Serials to watch
+report.serials.columns=id,description,urgency
+report.serials.labels=ID,Desc,Urg
+report.serials.sort=urgency-
+report.serials.filter=project:serials
+urgency.due.coefficient=6

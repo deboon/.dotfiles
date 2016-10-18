@@ -187,15 +187,16 @@ bar {
 }
 
 exec xrandr --output eDP1 --auto --primary --output DP1 --auto --left-of eDP1
+exec xsetroot -solid "#333333"
 exec setxkbmap -layout "us,ru" -option "grp:caps_toggle,grp_led:caps"
 exec synclient TapButton2=0
 exec syncthing -no-browser
+exec nm-applet
 
-exec --no-startup-id i3-msg 'workspace 9; keepassx; workspace 1'
-exec --no-startup-id i3-msg 'workspace 5; telegram; workspace 1'
+exec --no-startup-id i3-msg 'workspace 9; exec keepassx; workspace 1'
+exec --no-startup-id i3-msg 'workspace 5; exec telegram; workspace 1'
 
 exec i3-msg 'workspace 1'
-
 
 #exec --no-startup-id i3-msg 'workspace "1: main"; exec google-chrome; workspace "1: main"'
 #exec --no-startup-id i3-msg 'workspace "3: mail"; exec thunderbird; workspace "1: main"'

@@ -44,7 +44,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git git-extras sublime urltools taskwarrior)
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/bin/aws_zsh_completer.sh
+[[ ( -f /usr/local/bin/aws_zsh_completer.sh ) ]] && source /usr/local/bin/aws_zsh_completer.sh
 
 # Customize to your needs...
 export PATH=$PATH:$HOME/.bin:$HOME/.bin_paths:/home/mentor/perl5/bin:/home/mentor/google_appengine:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin

@@ -87,6 +87,9 @@ PROMPT="$CRUNCH_TIME_$CRUNCH_USER_HOST_$CRUNCH_DIR_$CRUNCH_PROMPT%{$reset_color%
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 
+alias grep="/usr/bin/grep $GREP_OPTIONS"
+unset GREP_OPTIONS
+
 # livestreamer for twitch
 tw() {if [[ -z $2 ]]; then quality="best"; else quality=$2; fi; livestreamer --default-stream $quality "twitch.tv/$1"}
 alias tw=tw
@@ -99,21 +102,20 @@ warp() {if [[ -z $1 ]]; then echo "no file specified\n"; else file=$1; curl -H "
 alias warp=warp
 
 #SO girls
-alias alice='ssh alice.aqq.me'
-alias amy='ssh amy.aqq.me'
-alias diana='ssh diana.aqq.me'
-alias eva='ssh eva.aqq.me'
-alias fiona='ssh fiona.aqq.me'
-alias frida='ssh frida.aqq.me'
-alias jane='ssh jane.aqq.me'
-alias kate='ssh kate.aqq.me'
-alias lisa='ssh lisa.aqq.me'
-alias monica='ssh monica.aqq.me'
-alias petra='ssh petra.aqq.me'
+alias alice='ssh alice.dd'
+alias amy='ssh amy.dd'
+alias diana='ssh diana.dd'
+alias eva='ssh eva.dd'
+alias fiona='ssh fiona.dd'
+alias frida='ssh frida.dd'
+alias jane='ssh jane.dd'
+alias kate='ssh kate.dd'
+alias lisa='ssh lisa.dd'
+alias monica='ssh monica.dd'
+alias petra='ssh petra.dd'
 alias rachel='ssh rachel.aqq.me'
-alias vlatka='ssh vlatka.aqq.me'
-alias yana='ssh yana.aqq.me'
-alias zoe='ssh zoe.aqq.me'
-alias dev='ssh mentodev.aqq.me'
-alias siri='ssh siri.aqq.me'
+alias vlatka='ssh vlatka.dd'
+alias yana='ssh yana.dd'
+alias zoe='ssh zoe.dd'
+alias siri='ssh siri.dd'
 

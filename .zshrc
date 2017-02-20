@@ -87,7 +87,7 @@ PROMPT="$CRUNCH_TIME_$CRUNCH_USER_HOST_$CRUNCH_DIR_$CRUNCH_PROMPT%{$reset_color%
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 
-alias grep="/usr/bin/grep $GREP_OPTIONS"
+alias grep="/bin/grep $GREP_OPTIONS"
 unset GREP_OPTIONS
 
 # livestreamer for twitch

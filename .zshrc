@@ -50,10 +50,10 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:$HOME/.bin:$HOME/.bin_paths:/home/mentor/perl5/bin:/home/mentor/google_appengine:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin
 
 # Go language
-export GOROOT=$HOME/dev/go
-export PATH=$PATH:$GOROOT/bin
-export GOPATH=$HOME/dev/gopath
-export PATH=$PATH:$GOPATH/bin
+#export GOROOT=$HOME/dev/go
+export PATH=$PATH:$HOME/dev/go/bin
+#export GOPATH=$HOME/dev/gopath
+export PATH=$PATH:$HOME/go/bin
 
 # Custom bin dir
 export PATH=$PATH:$HOME/bin

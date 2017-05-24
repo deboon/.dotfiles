@@ -39,10 +39,12 @@ bindsym $mod+Control+d exec sleep 0.5 && xset dpms force off
 bindsym --release $mod+Shift+s exec DISPLAY=:0.0 ~/.bin/me_screen
 
 
-bindsym XF86MonBrightnessUp exec "if [[ `xbacklight -get` -ge 6 ]]; then xbacklight -inc 5; else xbacklight -inc 1; fi"
-bindsym XF86MonBrightnessDown exec "if [[ `xbacklight -get` -ge 6 ]]; then xbacklight -dec 5; else xbacklight -dec 1; fi"
-#bindsym XF86MonBrightnessUp exec xbacklight -inc 5%
-#bindsym XF86MonBrightnessDown exec xbacklight -dec 5%
+#bindsym XF86MonBrightnessUp exec "if [[ `xbacklight -get` -lt 90 ]]; then xbacklight -inc 1; else xbacklight -inc 5; fi"
+#bindsym XF86MonBrightnessDown exec "if [[ `xbacklight -get` -lt 90 ]]; then xbacklight -dec 1; else xbacklight -dec 5; fi"
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5%
+bindsym $mod+XF86MonBrightnessUp exec xbacklight -inc 1%
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5%
+bindsym $mod+XF86MonBrightnessDown exec xbacklight -dec 1%
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode

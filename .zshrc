@@ -101,6 +101,12 @@ me_rand() {cat /dev/urandom | tr -dc '0-9a-zA-Z' | head -c$1}
 warp() {if [[ -z $1 ]]; then echo "no file specified\n"; else file=$1; curl -H "Expect:" --upload-file $file "http://s.mne.li/$file"; fi;}
 alias warp=warp
 
+sshadd() {if [[ -z $1 ]]; then echo "no file specified\n"; else file=$1; ssh-add -t 1h ~/.ssh/$file; fi;}
+alias sshadd=sshadd
+
+sshdel() {if [[ -z $1 ]]; then echo "no file specified\n"; else file=$1; ssh-add -d ~/.ssh/$file; fi;}
+alias sshdel=sshdel
+
 #SO girls
 alias alice='ssh alice.dd'
 alias amy='ssh amy.dd'

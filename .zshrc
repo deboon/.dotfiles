@@ -41,10 +41,14 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras sublime urltools taskwarrior)
+plugins=(git git-extras sublime urltools taskwarrior pass)
 
 source $ZSH/oh-my-zsh.sh
 [[ ( -f /usr/local/bin/aws_zsh_completer.sh ) ]] && source /usr/local/bin/aws_zsh_completer.sh
+
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
 
 # Customize to your needs...
 export PATH=$PATH:$HOME/.bin:$HOME/.bin_paths:/home/mentor/perl5/bin:/home/mentor/google_appengine:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin
@@ -87,8 +91,8 @@ PROMPT="$CRUNCH_TIME_$CRUNCH_USER_HOST_$CRUNCH_DIR_$CRUNCH_PROMPT%{$reset_color%
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 
-alias grep="/bin/grep $GREP_OPTIONS"
-unset GREP_OPTIONS
+#alias grep="/bin/grep $GREP_OPTIONS"
+#unset GREP_OPTIONS
 
 # livestreamer for twitch
 tw() {if [[ -z $2 ]]; then quality="best"; else quality=$2; fi; livestreamer --default-stream $quality "twitch.tv/$1"}

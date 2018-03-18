@@ -147,9 +147,9 @@ bindsym $mod+Shift+9 move container to workspace $WS9
 bindsym $mod+Shift+0 move container to workspace $WS10
 
 bindsym $mod+x move workspace to output right
-bindsym $mod+z exec xrandr --output DP1 --off --output eDP1 --auto --primary
-bindsym $mod+Shift+z exec xrandr --output eDP1 --off --output DP1 --auto --primary
-bindsym $mod+c exec xrandr --output DP1 --auto --primary --left-of eDP1 --output eDP1 --auto
+bindsym $mod+z exec xrandr --output DP-1 --off --output eDP-1 --auto --primary
+bindsym $mod+Shift+z exec xrandr --output eDP-1 --off --output DP-1 --auto --primary
+bindsym $mod+c exec xrandr --output DP-1 --auto --primary --left-of eDP-1 --output eDP-1 --auto
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -191,7 +191,7 @@ bar {
         tray_output primary
 }
 
-exec xrandr --output eDP1 --auto --primary --output DP1 --auto --left-of eDP1
+exec xrandr --output eDP-1 --auto --primary --output DP-1 --auto --left-of eDP-1
 exec xsetroot -solid "#333333"
 exec setxkbmap -layout "us,ru" -option "grp:caps_toggle,grp_led:caps"
 exec synclient TapButton2=0
@@ -208,13 +208,13 @@ exec i3-msg 'workspace 1'
 #exec --no-startup-id i3-msg 'workspace "4: support"; exec skype; workspace "1: main"'
 #exec --no-startup-id i3-msg 'workspace "4: support"; exec "cd ~/tmp/Telegram/"; exec "./Updater"; workspace "1: main"'
 
-workspace $WS1 output eDP1
-workspace $WS2 output eDP1
-workspace $WS3 output DP1
-workspace $WS4 output DP1
-workspace $WS5 output eDP1
-workspace $WS6 output eDP1
-workspace $WS7 output eDP1
+workspace $WS1 output eDP-1
+workspace $WS2 output eDP-1
+workspace $WS3 output DP-1
+workspace $WS4 output DP-1
+workspace $WS5 output eDP-1
+workspace $WS6 output eDP-1
+workspace $WS7 output eDP-1
 
 for_window [title=" - Google Chrome$"] border none
 

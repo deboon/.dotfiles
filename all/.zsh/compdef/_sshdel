@@ -1,0 +1,12 @@
+#compdef sshdel
+
+if (( CURRENT == 2 )); then
+  local -a keys
+  for line in $(ssh-add -l | grep -v 'The agent has no identities' | awk '{print $3}'); do
+    if [ ! -z $line ]; then
+      key=$(basename $line)
+      keys=($keys $key)
+    fi
+  done
+  _describe 'keys' keys
+fi

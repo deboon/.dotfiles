@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+if [[ -z $1 ]]; then echo "no file specified\n"; else ssh-add -d $HOME/.ssh/$1; fi;

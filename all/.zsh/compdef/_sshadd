@@ -1,0 +1,13 @@
+#compdef sshadd
+
+if (( CURRENT == 2)); then
+  local -a keys loaded toshow
+  loaded=$(ssh-add -l | grep -v 'The agent has no identities' | awk '{print $3}')
+  keys=$(grep -R -- '-----BEGIN RSA PRIVATE KEY-----' $HOME/.ssh | cut -d ':' -f1)
+  for line in $(comm -3 <(tr ' ' '\n' <<<"$keys" | sort) <(tr ' ' '\n' <<<"$loaded" | sort)); do
+    if [ ! -z $line ]; then
+      toshow=($toshow $(basename $line))
+    fi
+  done
+  _describe 'keys' toshow
+fi

@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+if [ ! -z "$1" ] && [ -s "$(go env GOPATH)/src/$1" ]; then
+  echo "$1"
+  cd "$GOPATH/src/$1"
+fi

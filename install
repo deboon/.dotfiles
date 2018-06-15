@@ -139,7 +139,7 @@ bootstrap () {
     pulltxt=$(git pull)
     info "$pulltxt"
     cd $p
-  elif [ -d $ohmyzsh ]; then
+  elif [ -d $ohmyzsh ] || [ -L $ohmyzsh ]; then
     needclone="true"
     user ".oh-my-zsh already exists, what do you want to do?\n\
     [s]kip, [o]verwrite, [b]ackup?"

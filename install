@@ -81,26 +81,22 @@ link_file () {
     backup=${backup:-$backup_all}
     skip=${skip:-$skip_all}
 
-    if [ "$overwrite" == "true" ]
-    then
+    if [ "$overwrite" == "true" ]; then
       rm -rf "$dst"
       success "removed $dst"
     fi
 
-    if [ "$backup" == "true" ]
-    then
+    if [ "$backup" == "true" ]; then
       mv "$dst" "${dst}.backup"
       success "moved $dst to ${dst}.backup"
     fi
 
-    if [ "$skip" == "true" ]
-    then
+    if [ "$skip" == "true" ]; then
       success "skipped $src"
     fi
   fi
 
-  if [ "$skip" != "true" ]  # "false" or empty
-  then
+  if [ "$skip" != "true" ]; then # "false" or empty
     mkdir -p $(dirname $dst)
     ln -s "$1" "$2"
     success "linked $1 to $2"
@@ -120,7 +116,6 @@ install_dotfiles () {
   else
     cycle_dirs "all"
   fi
-
 }
 
 cycle_dirs () {
@@ -134,18 +129,52 @@ cycle_dirs () {
 }
 
 bootstrap () {
-  if [ -d $HOME/.oh-my-zsh ]; then
+  local overwrite= backup= skip= needclone="true"
+  ohmyzsh=$HOME/.oh-my-zsh
+  if [ -d $ohmyzsh/.git ]; then
     info "Updating Oh My ZSH"
+    needclone="false"
     p=$(pwd)
     cd $HOME/.oh-my-zsh
     pulltxt=$(git pull)
     info "$pulltxt"
     cd $p
-  else
+  elif [ -d $ohmyzsh ]; then
+    needclone="true"
+    user ".oh-my-zsh already exists, what do you want to do?\n\
+    [s]kip, [o]verwrite, [b]ackup?"
+    read -n 1 action
+
+    case "$action" in
+      o )
+        overwrite=true;;
+      b )
+        backup=true;;
+      s )
+        skip=true;;
+      * )
+        ;;
+    esac
+    if [ "$overwrite" == "true" ]; then
+      rm -rf "$ohmyzsh"
+      success "removed $ohmyzsh"
+    fi
+
+    if [ "$backup" == "true" ]; then
+      mv "$ohmyzsh" "${ohmyzsh}.backup"
+      success "moved $ohmyzsh to ${ohmyzsh}.backup"
+    fi
+
+    if [ "$skip" == "true" ]; then
+      success "skipped $ohmyzsh"
+    fi
+  fi
+
+  if [ "$skip" != "true" ] && [ "$needclone" == "true" ]; then
     info "Cloning Oh My ZSH"
     git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
   fi
-
+  
   if [ `basename $SHELL` != "zsh" ]; then
     chsh -s $(which zsh)
   fi

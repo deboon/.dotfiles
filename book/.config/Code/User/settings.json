@@ -5,7 +5,7 @@
   "editor.renderWhitespace": "boundary",
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
-  "workbench.sideBar.location": "left",
+  "workbench.sideBar.location": "right",
   "workbench.statusBar.visible": true,
   // "workbench.colorCustomizations": {
   //     "statusBarBackground" : "#1A1A1A",

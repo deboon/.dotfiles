@@ -27,7 +27,7 @@ set $WS10 "10"
 
 hide_edge_borders both
 
-bindsym $mod+Control+l exec i3lock -d -c 141414
+bindsym $mod+Escape exec i3lock -d -c 141414
 #bindsym $mod+Control+l exec mate-screensaver-command -l && sleep 2 && xset dpms force off
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +3%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -3%

@@ -288,7 +288,7 @@ format-connected-underline = ${colors.info}
 label-connected = %downspeed:8:8%|%upspeed:8:8%
 
 format-disconnected = <label-disconnected>
-label-disconnected = ""
+label-disconnected = 
 
 [module/eth]
 type = internal/network

@@ -9,3 +9,5 @@
 	default = simple
 [credential]
 	helper = cache
+[url "git@git.aqq.me:"]
+	insteadOf = https://git.aqq.me/

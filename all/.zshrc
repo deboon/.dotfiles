@@ -1,3 +1,5 @@
+fpath=($HOME/.zsh/compdef $fpath)
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -110,6 +112,3 @@ me_rand() {cat /dev/urandom | tr -dc '0-9a-zA-Z' | head -c$1}
 
 # function sshdel() {if [[ -z $1 ]]; then echo "no file specified\n"; else file=$1; ssh-add -d ~/.ssh/$file; fi;}
 # alias sshdel=sshdel
-
-fpath=($HOME/.zsh/compdef $fpath)
-

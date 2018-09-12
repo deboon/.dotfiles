@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+dir=$1
+
+if [ "$dir" == "" ]; then
+  echo " !! Usage: $(basename $0) <dirname>"
+  exit
+fi
+
+case "$dir" in
+  secure )
+    rclone sync $HOME/sync/secure gdrive:secure -v;;
+  docs )
+    rclone sync $HOME/sync/docs eb2docs: -v;;
+  so )
+    rclone sync $HOME/so eb2so: -v;;
+  * )
+    echo "Do not know about $1 dir.\nEdit $0 to add may be?";;
+esac

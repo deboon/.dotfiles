@@ -149,7 +149,7 @@ bindsym $mod+Shift+0 move container to workspace $WS10
 
 bindsym $mod+x move workspace to output right
 bindsym $mod+c exec ~/.bin/rofi_xrandr.sh
-bindsym $mod+Shift+c exec xrandr --output DP-1 --off --output HDMI-1 --off --output eDP-1 --auto --primary && i3-msg restart
+bindsym $mod+Shift+c exec xrandr --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output eDP-1 --auto --primary && i3-msg restart
 bindsym $mod+q exec ~/.bin/rofi_nmcli.sh
 # reload the configuration file
 #bindsym $mod+Shift+c reload
@@ -200,8 +200,9 @@ exec setxkbmap -layout "us,ru" -option "grp:caps_toggle,grp_led:caps"
 exec synclient TapButton2=0
 exec nm-applet
 
-exec --no-startup-id i3-msg 'workspace 9; exec keepassx; workspace 1'
-exec --no-startup-id i3-msg 'workspace 5; exec telegram; workspace 1'
+#exec --no-startup-id i3-msg 'workspace 9; exec keepassx; workspace 1'
+exec --no-startup-id Telegram
+exec --no-startup-id xss-lock -- i3lock -d -c 141414
 
 exec i3-msg 'workspace 1'
 

@@ -27,6 +27,7 @@ set $WS10 "10"
 
 hide_edge_borders both
 
+bindsym $mod+z exec /opt/enpass/Enpass showassistant
 bindsym $mod+Escape exec i3lock -d -c 141414
 #bindsym $mod+Control+l exec mate-screensaver-command -l && sleep 2 && xset dpms force off
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +3%
@@ -220,5 +221,6 @@ workspace $WS6 output eDP-1
 workspace $WS7 output eDP-1
 
 for_window [title=" - Google Chrome$"] border none
+for_window [title=" - Mozilla Firefox$"] border none
 
 floating_minimum_size 500 x 200

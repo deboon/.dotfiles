@@ -180,7 +180,8 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = /usr/bin/dmenu -p dunst:
+    dmenu = /usr/bin/rofi -dmenu -p dunst:
+    #dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
     browser = /usr/bin/firefox -new-tab
@@ -339,6 +340,11 @@
 
 [google_play_music]
     appname = "Google Chrome"
+    body = "*play.google.com*"
+    urgency = low
+
+[google_play_music_firefox]
+    appname = "Mozilla Firefox"
     body = "*play.google.com*"
     urgency = low
 

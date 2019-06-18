@@ -8,11 +8,6 @@
   "telemetry.enableCrashReporter": false,
   "workbench.sideBar.location": "right",
   "workbench.statusBar.visible": true,
-  // "workbench.colorCustomizations": {
-  //     "statusBarBackground" : "#1A1A1A",
-  //     "statusBarNoFolderBackground" : "#0A0A0D",
-  //     "statusBarDebuggingBackground": "#511f1f"
-  // },
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
   "editor.minimap.enabled": false,
@@ -20,20 +15,69 @@
   "git.autofetch": false,
   "extensions.ignoreRecommendations": true,
 
-  "go.formatTool": "goimports",
-  // "go.useLanguageServer": true,
   "workbench.editor.showTabs": true,
   "workbench.statusBar.feedback.visible": false,
   "workbench.editor.enablePreview": true,
   "explorer.openEditors.visible": 0,
   "editor.tabSize": 2,
-  // "go.lintTool": "gometalinter",
   "workbench.activityBar.visible": true,
-  "go.autocompleteUnimportedPackages": true,
   "window.zoomLevel": 0,
   "zenMode.hideTabs": false,
   "zenMode.centerLayout": false,
   "breadcrumbs.enabled": false,
   "window.menuBarVisibility": "toggle",
   "terminal.integrated.rendererType": "dom",
+  "window.titleBarStyle": "native",
+  "workbench.settings.editor": "json",
+
+
+  "go.useLanguageServer": true,
+  "go.languageServerExperimentalFeatures": {
+    "diagnostics": true, // for diagnostics as you type
+    // "autoComplete": true
+  },
+  "[go]": {
+    "editor.snippetSuggestions": "none",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+  },
+  "gopls": {
+    "usePlaceholders": true, // add parameter placeholders when completing a function
+  },
+  "files.eol": "\n", // formatting only supports LF line endings
+  "go.languageServerFlags": [
+    "-logfile=/tmp/gopls.log",
+    "-rpc.trace"
+  ],
+
+
+  // "go.alternateTools": {
+  //   "go-langserver": "gopls"
+  // },
+  // // "go.languageServerFlags": [
+  // //   "-logfile=auto"
+  // // ],
+  // "go.languageServerExperimentalFeatures": {
+  //   "format": true,
+  //   "autoComplete": true,
+  //   "goToDefinition": true,
+  //   "hover": true,
+  //   "signatureHelp": true,
+  //   "goToTypeDefinition": true
+  // },
+  // "go.buildOnSave": "off",
+  // "go.vetOnSave": "off",
+  // "editor.formatOnSave": true,
+  // "editor.codeActionsOnSave": {
+  //   "source.organizeImports": true
+  // },
+  // "go.useLanguageServer": true,
+  // "dart.flutterSdkPath": "/home/mentor/dev/flutter",
+
+  // // "go.formatTool": "goimports",
+  // // "go.autocompleteUnimportedPackages": true,
+  // // "go.useLanguageServer": true,
+  // // "go.lintTool": "gometalinter",
 }

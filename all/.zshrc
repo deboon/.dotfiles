@@ -43,7 +43,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras sublime urltools go)
+plugins=(git git-extras sublime go)
 
 source $ZSH/oh-my-zsh.sh
 [[ ( -f /usr/local/bin/aws_zsh_completer.sh ) ]] && source /usr/local/bin/aws_zsh_completer.sh
@@ -102,6 +102,11 @@ export LC_ALL='en_US.UTF-8'
 
 # useful random func
 me_rand() {cat /dev/urandom | tr -dc '0-9a-zA-Z' | head -c$1}
+
+bput() {echo -n 'Password: ' && read -s pass && if [[ -z $2 ]]; then bucket="meback"; else bucket=$2; fi; tar -cvf - $1 | gpg --batch --yes --passphrase $pass --symmetric --cipher-algo AES256 --digest-algo SHA256 --compression-algo 2 | rclone rcat b2:$bucket/$1.enc.`date '+%s'`}
+bget() {echo -n 'Password: ' && read -s pass && if [[ -z $2 ]]; then bucket="meback"; else bucket=$2; fi; if [[ -z $3 ]]; then to="./"; else to=$3; fi; rclone cat b2:$bucket/$1 | gpg --batch --yes --passphrase $pass --decrypt | tar -xv -C $to}
+bls() {if [[ -z $1 ]]; then bucket="meback"; else bucket=$1; fi; rclone lsl b2:$bucket | awk '{print $4"\t"$2" "$3" "$1}' | sort -r}
+brm() {if [[ -z $2 ]]; then bucket="meback"; else bucket=$2; fi; rclone deletefile b2:$bucket/$1}
 
 # warper for s.mne.li
 # warp() {if [[ -z $1 ]]; then echo "no file specified\n"; else file=$1; curl -H "Expect:" --upload-file $file "http://s.mne.li/$file"; fi;}

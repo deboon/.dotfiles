@@ -33,7 +33,6 @@ bindsym $mod+Escape exec i3lock -d -c 141414
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +3%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -3%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
-bindsym $mod+Control+p exec ~/.bin/synaptics_switcher
 bindsym $mod+Control+d exec sleep 0.5 && xset dpms force off
 
 bindsym --release $mod+Shift+s exec "DISPLAY=:1 ~/.bin/me_screen"
@@ -117,6 +116,13 @@ bindsym $mod+Shift+space floating toggle
 
 # sticky toggle
 bindsym $mod+bracketright sticky toggle
+bindsym --whole-window $mod+button2 sticky toggle
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+bindsym $mod+p title_format "%title"
+bindsym $mod+Shift+p title_format "%title [c: \\"%class\\", i: \\"%instance\\"]"
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -225,5 +231,13 @@ workspace $WS7 output eDP-1
 
 for_window [title=" - Google Chrome$"] border none
 for_window [class="^Firefox$"] border none
+
+# floating window Firefox
+for_window [title="Picture-in-Picture" class="^Firefox$" instance="^Toolkit$"] sticky enable
+for_window [title="Picture-in-Picture" class="^Firefox$" instance="^Toolkit$"] move scratchpad ; scratchpad show
+
+# Telegram Desktop
+# app window on 5 workspace
+assign [class="^TelegramDesktop$"] 5
 
 floating_minimum_size -1 x -1

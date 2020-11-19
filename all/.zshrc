@@ -43,7 +43,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras sublime go)
+plugins=(git git-extras sublime golang)
 
 source $ZSH/oh-my-zsh.sh
 [[ ( -f /usr/local/bin/aws_zsh_completer.sh ) ]] && source /usr/local/bin/aws_zsh_completer.sh
@@ -99,6 +99,8 @@ export LC_ALL='en_US.UTF-8'
 # livestreamer for twitch
 # tw() {if [[ -z $2 ]]; then quality="best"; else quality=$2; fi; livestreamer --default-stream $quality "twitch.tv/$1"}
 # alias tw=tw
+
+alias swb='GIT_SSH_COMMAND="ssh -i ~/.ssh/wb"'
 
 # useful random func
 me_rand() {cat /dev/urandom | tr -dc '0-9a-zA-Z' | head -c$1}

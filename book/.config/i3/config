@@ -115,6 +115,9 @@ workspace_layout tabbed
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
+# sticky toggle
+bindsym $mod+bracketright sticky toggle
+
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -223,4 +226,4 @@ workspace $WS7 output eDP-1
 for_window [title=" - Google Chrome$"] border none
 for_window [class="^Firefox$"] border none
 
-floating_minimum_size 500 x 200
+floating_minimum_size -1 x -1

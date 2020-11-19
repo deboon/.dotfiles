@@ -60,7 +60,7 @@ font-5 = "Font Awesome 5 Brands:pixelsize=10;1"
 
 modules-left = i3
 ;modules-center = mpd
-modules-right = wlanspeed filesystem backlight-acpi pulseaudio xkeyboard memory cpu wlan battery0 battery1 temperature mydate
+modules-right = ethspeed wlanspeed filesystem backlight-acpi pulseaudio xkeyboard memory cpu wlan battery0 battery1 temperature mydate
 
 tray-position = right
 tray-padding = 0
@@ -253,18 +253,18 @@ ramp-used-0-foreground = ${colors.ok}
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = wlo1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = ${colors.info}
 label-connected = %essid%(%signal%)
 
-format-disconnected-prefix = " "
+;format-disconnected-prefix = " "
 format-disconnected-prefix-foreground = ${colors.error}
 format-disconnected = <label-disconnected>
 format-disconnected-underline = ${colors.error)
-label-disconnected = NO_CONN
+label-disconnected = "  "
 ;label-disconnected = %ifname% disconnected
 label-disconnected-foreground = ${colors.error}
 
@@ -279,9 +279,20 @@ ramp-signal-2-foreground = ${colors.warning}
 ramp-signal-1-foreground = ${colors.error}
 ramp-signal-0-foreground = ${colors.error}
 
+[module/ethspeed]
+type = internal/network
+interface = eno2
+interval = 1
+format-connected = <label-connected>
+format-connected-underline = ${colors.info}
+label-connected = %downspeed:8:8%|%upspeed:8:8%
+
+format-disconnected = <label-disconnected>
+label-disconnected = 
+
 [module/wlanspeed]
 type = internal/network
-interface = wlp3s0
+interface = wlo1
 interval = 1
 format-connected = <label-connected>
 format-connected-underline = ${colors.info}

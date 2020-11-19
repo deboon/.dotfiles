@@ -4,6 +4,7 @@
 
 declare -A hosts
 hosts[mentobook]="all book"
+hosts[mentostation]="all book"
 #hosts[some-hostname]="all otherdir"
 hostname=$(hostname)
 
